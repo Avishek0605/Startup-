@@ -1,0 +1,4 @@
+export type Candidate = { id:string; full_name:string; course:string; college:string; roll_number:string; phone:string; email:string; location:string; preferred_role:string; experience_years:number|null; verification_status:'pending'|'verified'|'rejected'; created_at:string };
+export type Hospital = { id:string; hospital_name:string; contact_person:string; phone:string; email:string; location:string; created_at:string };
+export type Job = { id:string; hospital_id:string; role_title:string; required_qualification:string; experience_required:string|null; location:string; vacancies:number; shift:string|null; description:string|null; status:'open'|'closed'; created_at:string; hospitals?: Pick<Hospital,'hospital_name'> };
+export type Application = { id:string; job_id:string; candidate_id:string; status:'applied'|'shortlisted'|'rejected'; created_at:string; jobs?: Job; candidates?: Candidate };
